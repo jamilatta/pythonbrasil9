@@ -1,0 +1,47 @@
+Título da apresentação: Django Forms com muitos dados
+
+Sumário:
+
+1. Desenvolvendo formulários para muitos dados... com o que se preocupar?;
+2. Evitando lentidão no carregamento do formulário;
+3. Quais componentes devem ser utilizados;
+4. Deixar o formulário mais dinâmico é a solução?;
+5. Campos no forms.Form que permitem muitos dados sem prejudicar o desempenho;
+6. Como modelar os dados pensando nos formulários.
+
+O objetivo é demonstrar como construir formulários em Django que visam grandes volumes de dados, bem como os componentes utilizados e suas otimizações.
+
+A palestra visa também apresentar de maneira prática casos reais baseado na experiência do uso de Django para a gestão de dados catalográficos nas coleções SciELO.
+
+
+Slide1: Django Forms com muitos dados
+        Nome: Jamil Atta Junior
+        git: https://github.com/jamilatta/
+        git com apresentação e exemplos: https://github.com/jamilatta/pythonbrasil9
+
+Slide2: Desenvolvendo formulário para muitos dados... com o que se preocupar?
+        Campos do tipo ForeignKey e ManyToManyField no formulário.
+        Estimativa de crescimento dos dados relacionamentos.
+        Tentar modelar de forma mais plana possível.
+
+Slide3: Para evitar lentidão do carregamento do formulário é interessante utilizar recurso, como:
+        Ajax para os campos do tipo ForeingKey e Manytomany;
+        Sobreescrever o comportamento padrão dos queries set dos compomentes evitando queries gigantescas;
+
+Slide4: Componentes customizados para evitar queries gigantescas (Custom Model Field);
+
+Slide5: InlineFormSet deve ser utilizado somente para uma número limitado de relacionamento, caso contrário a performance será penalizada, solução uso de componentes AJAX nos inline o que aumenta a complexidade do desenvolvimento do client side (javascript).
+
+Slide6: Uso de métodos only() e defer() para ecomonizar queries para o banco de dados, ler e exemplificar: https://docs.djangoproject.com/en/1.5/ref/models/querysets/
+
+Slide7: Sistema de cacheamento (Exemplo: Cache Machine), ler e exemplificar: https://github.com/jbalogh/django-cache-machine
+
+Slide8: Exemplificar os inline formset com foreingkey e manytomany.
+
+Slide9: Wizard Form o que exatamente é isso??, ler e exemplificar.
+
+Exemplo de componente: http://ivaynberg.github.io/select2/
+
+OBS: select_related and prefetch_related
+
+
